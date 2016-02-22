@@ -32,4 +32,4 @@ while done==False:
             done=True                       #Loop exit
     clock.tick(20)
 
-pygame.quit()                               #Quit game when program is closed
+pygame.quit()                               #Quit game when user closes window
