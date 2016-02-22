@@ -27,9 +27,24 @@ clock=pygame.time.Clock()
 #Main program loop:
 while done==False:
 
+    #ALL EVENT PROCESSING TO GO HERE:
+
     for event in pygame.event.get():        #User input
         if event.type == pygame.QUIT:       #If user closes program
             done=True                       #Loop exit
     clock.tick(20)
+
+    #ALL GAME LOGIC TO GO HERE:
+
+
+
+
+    #ALL CODE DRAWING TO GO HERE:
+    
+    screen.fill(white)
+    for x in range(0,100,20):
+        pygame.draw.line(screen,green,[x,0],[x,100],5)
+    pygame.display.flip()
+
 
 pygame.quit()                               #Quit game when user closes window
