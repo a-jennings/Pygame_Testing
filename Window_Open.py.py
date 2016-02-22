@@ -17,6 +17,7 @@ screen=pygame.display.set_mode(size)
 
 #Sets name at the top of the window
 pygame.display.set_caption("Half-Life 3")
+pi=3.141592653
 
 #Loop until the user clicks the close button
 done=False
@@ -44,6 +45,26 @@ while done==False:
     screen.fill(white)
     for x in range(0,100,20):
         pygame.draw.line(screen,green,[x,0],[x,100],5)
+
+
+    #Draw a rectangle
+    pygame.draw.rect(screen,black,[150,50,250,100],1)
+
+    #Draw an ellipse
+    pygame.draw.ellipse(screen,black,[150,50,250,100],1)
+
+
+    #Draw an arc as part of an ellipse. Use radians to
+    #determine what angle to draw
+
+    pygame.draw.arc(screen,green, [400,100,250,200], pi/2, pi, 2)
+    pygame.draw.arc(screen,black, [400,100,250,200], 0, pi/2, 2)
+    pygame.draw.arc(screen,red,   [400,100,250,200], 3*pi/2, 2*pi, 2)
+    pygame.draw.arc(screen,blue,  [400,100,250,200], pi, 3*pi/2, 2)
+
+    #Draw a triangle, or any polygon using different point co-ords
+    pygame.draw.polygon(screen,red,[[250,250],[100,400],[400,400]],2)
+        
     pygame.display.flip()
 
 
