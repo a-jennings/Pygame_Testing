@@ -63,7 +63,7 @@ while done==False:
     pygame.draw.arc(screen,blue,  [400,100,250,200], pi, 3*pi/2, 2)
 
     #Draw a triangle, or any polygon using different point co-ords
-    pygame.draw.polygon(screen,red,[[250,250],[100,400],[400,400]],2)
+    pygame.draw.polygon(screen,green,[[250,250],[100,400],[400,400]],2)
         
     pygame.display.flip()
 
