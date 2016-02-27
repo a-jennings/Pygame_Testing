@@ -10,6 +10,7 @@
 """
  
 import pygame
+import random
  
 # Define some colors
 BLACK = (0, 0, 0)
@@ -28,11 +29,15 @@ pygame.display.set_caption("My Game")
 # Loop until the user clicks the close button.
 done = False
 
-rect_pos_x = 50
-rect_pos_y = 50
-rect_change_x = 5
-rect_change_y = 2
- 
+rect_pos_x = random.randrange(0,649)
+rect_pos_y = random.randrange(0,449)
+rect2_pos_x = random.randrange(0,649)
+rect2_pos_y = random.randrange(0,449)
+rect_change_x = random.randrange(1,10)
+rect_change_y = random.randrange(1,10)
+rect2_change_x = random.randrange(1,10)
+rect2_change_y = random.randrange(1,10)
+  
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
  
@@ -49,11 +54,17 @@ while not done:
     rect_pos_x += rect_change_x
     rect_pos_y += rect_change_y
 
+    rect2_pos_x += rect2_change_x
+    rect2_pos_y += rect2_change_y
+    
     if rect_pos_x > 649 or rect_pos_x < 0:
         rect_change_x *= -1
     if rect_pos_y > 449 or rect_pos_y < 0:
         rect_change_y *= -1
-    
+    if rect2_pos_x > 649 or rect2_pos_x < 0:
+        rect2_change_x *= -1
+    if rect2_pos_y > 449 or rect2_pos_y < 0:
+        rect2_change_y *= -1    
     # --- Screen-clearing code goes here
  
     # Here, we clear the screen to white. Don't put other drawing commands
@@ -66,12 +77,13 @@ while not done:
     # --- Drawing code should go here
 
     pygame.draw.rect(screen,WHITE,[rect_pos_x,rect_pos_y,50,50])
+    pygame.draw.rect(screen,GREEN,[rect2_pos_x,rect2_pos_y,50,50])
  
     # --- Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
  
-    # --- Limit to 60 frames per second
-    clock.tick(60)
+    # --- Limit to 30 frames per second
+    clock.tick(30)
  
 # Close the window and quit.
 pygame.quit()
